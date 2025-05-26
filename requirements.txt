@@ -1,0 +1,2 @@
+requests
+RPi.GPIO ; platform_machine == "armv7l"
