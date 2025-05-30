@@ -26,6 +26,8 @@ pip install -r requirements.txt
 python main.py
 ```
 
+---
+
 ## SlackのWebhook URLを取得する方法
 
 PythonなどからSlackへ通知を送るには、**Webhook URL**を取得する必要があります。以下の手順に従ってSlackのIncoming Webhookを設定し、URLを取得してください。
@@ -59,8 +61,8 @@ PythonなどからSlackへ通知を送るには、**Webhook URL**を取得する
 
 #### 4. WebHookの設定方法
 
-1. 取得したwebhook_urlをdata/config.jsonのslack_webhook_urlに追加
-2. botを追加したチャンネル名をdata/config.jsonのslack_webhook_channelに追加
+1. 取得したwebhook_urlを.envのSLACK_WEBHOOK_URLに追加
+2. botを追加したチャンネル名を.envのSLACK_WEBHOOK_CHANNELに追加
 
 ---
 
@@ -69,3 +71,43 @@ PythonなどからSlackへ通知を送るには、**Webhook URL**を取得する
 - [Zenn 記事](https://zenn.dev/hotaka_noda/articles/4a6f0ccee73a18)
 - [Slack API 公式](https://api.slack.com/messaging/webhooks)
 
+---
+
+## 赤外線センサーのセットアップ
+
+一般的な3ピンの赤外線センサーをRaspberry Piに接続する手順を説明します。
+
+### ✅ 準備するもの
+
+  * 赤外線センサーモジュール (HC-SR501など)
+  * Raspberry Pi (任意のモデル)
+  * ジャンパーワイヤー (メス-メス または メス-オス、センサーのピンタイプによる)
+
+### ✅ ピン配置の確認
+
+赤外線センサーには通常、以下の3つのピンがあります。中央のPINがOUTのことが多いです。
+
+  * **VCC**: 電源ピン (通常 5V または 3.3V)
+  * **GND**: グランドピン
+  * **OUT** (または **SIGNAL**): センサーの検知信号を出力するピン
+
+### ✅ Raspberry Piとの接続
+
+1.  **VCCピンの接続**:
+      * 赤外線センサーの **VCC** ピンを、Raspberry Pi の **5V** ピン (ピン番号 2 または 4) に接続します。
+      * センサーが3.3V駆動の場合は、Raspberry Pi の **3.3V** ピン (ピン番号 1 または 17) に接続します。
+2.  **GNDピンの接続**:
+      * 赤外線センサーの **GND** ピンを、Raspberry Pi の **GND** ピン (例: ピン番号 6, 9, 14, 20, 25, 30, 34, 39) のいずれかに接続します。
+3.  **OUTピンの接続**:
+      * 赤外線センサーの **OUT** ピンを、Raspberry Pi の任意の **GPIOピン** (例: GPIO17 / ピン番号 11) に接続します。このピンでセンサーの信号を読み取ります。
+
+> ⚠️ **注意点**
+>
+>   * 接続する前に、Raspberry Piの電源がオフになっていることを確認してください。
+>   * センサーによっては、VCCとGNDの配置が異なる場合があります。必ずセンサーの仕様書や基板の表記を確認してください。誤った接続はセンサーやRaspberry Piの故障の原因となります。
+
+---
+
+## 🔗 参考
+
+- [Hatena Blog 記事](https://aquarius-train.hatenablog.com/entry/RaspberryPi_3B%2B%E3%81%A7%E4%BA%BA%E6%84%9F%E3%82%BB%E3%83%B3%E3%82%B5%E3%83%BC%E3%81%AE%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D)
