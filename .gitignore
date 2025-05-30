@@ -105,3 +105,7 @@ venv/
 ENV/
 env/
 .venv/
+
+# Enviroments
+.env
+!.env.sample
