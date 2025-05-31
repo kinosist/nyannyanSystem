@@ -1,0 +1,16 @@
+{
+  "username": "CatBot",
+  "icon_emoji": ":cat:",
+  "channel": "#cat-feed",
+  "text": "猫が餌を食べています！",
+  "attachments": [
+    {
+      "color": "#36a64f",
+      "title": "監視カメラ通知",
+      "text": "人感センサーが反応しました",
+      "image_url": "https://example.com/neko.jpg",
+      "footer": "自動通知システム",
+      "ts": 1715678900
+    }
+  ]
+}

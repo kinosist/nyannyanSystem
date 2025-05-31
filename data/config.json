@@ -1,0 +1,9 @@
+{
+  "slack_webhook_url": "https://xxxxxxxxxxxxxxx",
+  "slack_webhook_channel":"#channel_name",
+  "sensor_gpio_pin": 17,
+  "detection_grace_time_sec": 10,
+
+  "log_level": "INFO",
+  "log_file": "log.txt"
+}
